@@ -21,6 +21,8 @@ namespace Midgar.API
             );
 
             services.AddControllers();
+
+            services.AddCors();
  
             services.AddSwaggerGen(c =>
             {
@@ -43,6 +45,11 @@ namespace Midgar.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(acess => acess.AllowAnyHeader()
+                                      .AllowAnyMethod()
+                                      .AllowAnyOrigin()
+            );
 
             app.UseEndpoints(endpoints =>
             {
