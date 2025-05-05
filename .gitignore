@@ -494,3 +494,4 @@ Thumbs.db
 *.db
 *.db-shm
 *.db-wal
+Back/src/Midgar.API/Midgar.db
