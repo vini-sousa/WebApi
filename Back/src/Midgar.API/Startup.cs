@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Midgar.API.Data;
+using Midgar.Application;
+using Midgar.Application.Interface;
+using Midgar.Persistence;
+using Midgar.Persistence.Context;
+using Midgar.Persistence.Interface;
 
 namespace Midgar.API
 {
@@ -16,11 +20,17 @@ namespace Midgar.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(
+            services.AddDbContext<MidgarContext>(
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddScoped<IEventService, EventService>();
+
+            services.AddScoped<IGeneralPersist, GeneralPersist>();
+            
+            services.AddScoped<IEventPersist, EventPersist>();       
 
             services.AddCors();
  
