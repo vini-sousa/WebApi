@@ -1,6 +1,4 @@
-<h2>Events</h2>
-<hr>
-
+<app-title [title]="'Event'"></app-title>
 <div class="form-inline">
     <div class="form-group mb-2">
         <label class="mr-2 font-weight-bold h5" for="Filter">Filter:</label>
@@ -25,7 +23,7 @@
             <th>Date</th>
             <th>Amount of People</th>
             <th>Lote</th>
-            <th>Options</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody *ngIf="events && events.length">
@@ -33,15 +31,15 @@
             <td>
                 <img [collapse]="isCollapsed" [isAnimated]="true" src="assets/{{event.imageURL}}" alt="{{event.imageURL}}" [style.width.px]="widthImg" [style.margin.px]="marginImg">
             </td>
-            <td>{{event.eventId}}</td>
+            <td>{{event.id}}</td>
             <td>{{event.theme}}</td>
             <td>{{event.local}}</td>
-            <td>{{event.eventDate}}</td>
+            <td>{{event.eventDate | DateTimeFormat}}</td>
             <td>{{event.peopleCount}}</td>
-            <td>{{event.lote}}</td>
+            <td>{{event.lotes[0].name}}</td>
             <td>
-                <button class="btn btn-primary btn-sm mr-2">Edit</button>
-                <button class="btn btn-danger btn-sm">Delete</button>
+                <button class="btn btn-primary btn-sm mr-2" tooltip="Edit" (click)="openModal(confirmModal)"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-danger btn-sm" tooltip="Delete" (click)="openModal(confirmModal)"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
     </tbody>
@@ -53,3 +51,13 @@
         </tr>
     </tfoot>
 </table>
+
+<!-- {{events | json }}-->
+
+<ng-template #confirmModal>
+    <div class="modal-body text-center">
+      <p>Do you want to confirm?</p>
+      <button type="button" class="btn btn-primary mr-2" (click)="confirm()" >Yes</button>
+      <button type="button" class="btn btn-danger" (click)="decline()" >No</button>
+    </div>
+</ng-template>
