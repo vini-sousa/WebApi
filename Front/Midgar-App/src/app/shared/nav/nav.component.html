@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="showMenu()">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="dashboard">MidgarApp</a>
+    <a class="navbar-brand ps-3" routerLink="dashboard">
+      <img src="assets/logo.png" width="70px">
+    </a>
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,12 +25,12 @@
             Vinícius
           </a>
           <div *dropdownMenu class="dropdown-menu dropdown-menu-end dropdown-menu-dark" style="min-width: auto;" aria-labelledby="navbarDarkDropdownMenuLink">  
-            <a class="dropdown-item" routerLink="profile">
-              Perfil
+            <a class="dropdown-item" routerLink="user/profile">
+              Profile
             </a>
             <div role="separator" class="divider"></div>
-            <a class="dropdown-item" href="#">
-              Sair
+            <a class="dropdown-item" routerLink="user/login">
+              Logout
             </a>
           </div>
         </li>

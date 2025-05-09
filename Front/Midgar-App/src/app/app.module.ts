@@ -10,7 +10,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EventsComponent } from './components/events/events.component';
 import { SpeakersComponent } from './components/speakers/speakers.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 import { TitleComponent } from './shared/title/title.component';
 import { NavComponent } from './shared/nav/nav.component';
@@ -26,6 +26,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { EventService } from './services/event.service';
 
 import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
+import { EventDetailsComponent } from './components/events/event-details/event-details.component';
+import { EventListComponent } from './components/events/event-list/event-list.component';
+import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
 
 
 @NgModule({
@@ -38,7 +43,12 @@ import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
     ProfileComponent,
     TitleComponent,
     NavComponent,
-    DateTimeFormatPipe
+    DateTimeFormatPipe,
+    EventDetailsComponent,
+    EventListComponent,
+    UserComponent,
+    LoginComponent,
+    RegistrationComponent
    ],
   imports: [
     BrowserModule,
