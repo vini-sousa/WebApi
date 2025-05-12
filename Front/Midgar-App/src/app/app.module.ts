@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxMaskModule } from 'ngx-mask'
 
 import { EventService } from './services/event.service';
 
@@ -31,7 +32,6 @@ import { EventListComponent } from './components/events/event-list/event-list.co
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
-
 
 @NgModule({
   declarations: [		
@@ -53,6 +53,7 @@ import { RegistrationComponent } from './components/user/registration/registrati
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -68,7 +69,8 @@ import { RegistrationComponent } from './components/user/registration/registrati
         progressBar: true
       }
     ),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [EventService],
   bootstrap: [AppComponent],
