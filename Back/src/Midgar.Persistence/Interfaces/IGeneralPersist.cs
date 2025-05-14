@@ -1,4 +1,4 @@
-namespace Midgar.Persistence.Interface
+namespace Midgar.Persistence.Interfaces
 {
     public interface IGeneralPersist
     {

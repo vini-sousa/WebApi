@@ -1,4 +1,4 @@
-namespace Midgar.Domain
+namespace Midgar.Domain.Entities
 {
     public class Speaker
     {
@@ -14,8 +14,8 @@ namespace Midgar.Domain
 
         public string Email { get; set; }
 
-        public IEnumerable<SocialMedia>? SocialMedias { get; set; }
+        public IEnumerable<SocialMedia> SocialMedias { get; set; }
 
-        public IEnumerable<SpeakerEvent>? SpeakerEvents { get; set; }
+        public IEnumerable<SpeakerEvent> SpeakerEvents { get; set; }
     }
 }

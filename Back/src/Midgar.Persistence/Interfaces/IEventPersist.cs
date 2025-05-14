@@ -1,15 +1,9 @@
-using Midgar.Domain;
+using Midgar.Domain.Entities;
 
-namespace Midgar.Application.Interface
+namespace Midgar.Persistence.Interfaces
 {
-    public interface IEventService
+    public interface IEventPersist
     {
-        Task<Event> AddEvents(Event model);
-
-        Task<Event> UpdateEvents(int id, Event model);
-
-        Task<bool> DeleteEvents(int eventId);
-
         Task<Event[]> GetAllEventsByThemeAsync(string theme, bool includedSpeakers = false);
 
         Task<Event[]> GetAllEventsAsync(bool includedSpeakers = false);

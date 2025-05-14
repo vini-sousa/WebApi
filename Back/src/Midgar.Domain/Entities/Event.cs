@@ -1,4 +1,4 @@
-namespace Midgar.Domain
+namespace Midgar.Domain.Entities
 {
     public class Event
     {
@@ -18,10 +18,10 @@ namespace Midgar.Domain
 
         public string Email { get; set; }
 
-        public IEnumerable<Lote>? Lotes { get; set; }
+        public IEnumerable<Lote> Lotes { get; set; }
 
-        public IEnumerable<SocialMedia>? SocialMedias { get; set; }
+        public IEnumerable<SocialMedia> SocialMedias { get; set; }
 
-        public IEnumerable<SpeakerEvent>? SpeakersEvents { get; set; }
+        public IEnumerable<SpeakerEvent> SpeakersEvents { get; set; }
     }
 }

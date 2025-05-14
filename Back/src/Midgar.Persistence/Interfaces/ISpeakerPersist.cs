@@ -1,6 +1,6 @@
-using Midgar.Domain;
+using Midgar.Domain.Entities;
 
-namespace Midgar.Persistence.Interface
+namespace Midgar.Persistence.Interfaces
 {
     public interface ISpeakerPersist
     {

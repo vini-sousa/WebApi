@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using Midgar.Domain;
+using Midgar.Domain.Entities;
 using Midgar.Persistence.Context;
-using Midgar.Persistence.Interface;
+using Midgar.Persistence.Interfaces;
 
-namespace Midgar.Persistence
+namespace Midgar.Persistence.Repositories
 {
-    public class SpeakerPersist : ISpeakerPersist
+    public class SpeakerRepository : ISpeakerPersist
     {
         private readonly MidgarContext _context;
-        public SpeakerPersist(MidgarContext context)
+        public SpeakerRepository(MidgarContext context)
         {
             _context = context;
         }

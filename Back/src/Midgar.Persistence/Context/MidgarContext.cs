@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Midgar.Domain;
+using Midgar.Domain.Entities;
 
 namespace Midgar.Persistence.Context
 {

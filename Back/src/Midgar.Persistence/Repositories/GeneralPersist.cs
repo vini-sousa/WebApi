@@ -1,12 +1,12 @@
 using Midgar.Persistence.Context;
-using Midgar.Persistence.Interface;
+using Midgar.Persistence.Interfaces;
 
-namespace Midgar.Persistence
+namespace Midgar.Persistence.Repositories
 {
-    public class GeneralPersist : IGeneralPersist
+    public class GeneralRepository : IGeneralPersist
     {
         private readonly MidgarContext _context;
-        public GeneralPersist(MidgarContext context)
+        public GeneralRepository(MidgarContext context)
         {
             _context = context;
         }

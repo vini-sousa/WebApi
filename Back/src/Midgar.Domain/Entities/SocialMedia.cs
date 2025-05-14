@@ -1,4 +1,4 @@
-namespace Midgar.Domain
+namespace Midgar.Domain.Entities
 {
     public class SocialMedia
     {

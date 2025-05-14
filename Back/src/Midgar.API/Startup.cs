@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Midgar.Application;
-using Midgar.Application.Interface;
-using Midgar.Persistence;
+using Midgar.Application.Services;
+using Midgar.Application.Interfaces;
+using Midgar.Persistence.Repositories;
 using Midgar.Persistence.Context;
-using Midgar.Persistence.Interface;
+using Midgar.Persistence.Interfaces;
 
 namespace Midgar.API
 {
@@ -26,11 +26,13 @@ namespace Midgar.API
 
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddScoped<IEventService, EventService>();
 
-            services.AddScoped<IGeneralPersist, GeneralPersist>();
+            services.AddScoped<IGeneralPersist, GeneralRepository>();
             
-            services.AddScoped<IEventPersist, EventPersist>();       
+            services.AddScoped<IEventPersist, EventRepository>();       
 
             services.AddCors();
  

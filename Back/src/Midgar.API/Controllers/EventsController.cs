@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Midgar.Domain;
-using Midgar.Application.Interface;
+using Midgar.Application.Interfaces;
+using Midgar.Application.DTOs;
 
 namespace Midgar.API.Controllers;
 
@@ -22,7 +22,7 @@ public class EventsController : ControllerBase
             var events = await _eventService.GetAllEventsAsync(true);
 
             if (events == null)
-                return NotFound("No events found.");
+                return NoContent();
             
             return Ok(events);
         }
@@ -40,7 +40,7 @@ public class EventsController : ControllerBase
             var eventById = await _eventService.GetEventByIdAsync(id, true);
 
             if (eventById == null)
-                return NotFound("Event by Id not found.");
+                return NoContent();
             
             return Ok(eventById);
         }
@@ -58,7 +58,7 @@ public class EventsController : ControllerBase
             var eventById = await _eventService.GetAllEventsByThemeAsync(theme, true);
 
             if (eventById == null)
-                return NotFound("Events by theme not found.");
+                return NoContent();
             
             return Ok(eventById);
         }
@@ -69,7 +69,7 @@ public class EventsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(Event model)
+    public async Task<IActionResult> Post(EventDTO model)
     {
         try
         {
@@ -87,7 +87,7 @@ public class EventsController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Event model)
+    public async Task<IActionResult> Put(int id, EventDTO model)
     {
         try
         {
@@ -109,7 +109,12 @@ public class EventsController : ControllerBase
     {
         try
         {
-            return await _eventService.DeleteEvents(id) ? Ok("Deleted") : BadRequest("Event not deleted");
+            var eventById = await _eventService.GetEventByIdAsync(id, true);
+
+            if (eventById == null)
+                return NoContent();
+                
+            return await _eventService.DeleteEvents(id) ? Ok("Deleted") : throw new Exception("An error occurred while trying to delete the event");
         }
         catch (Exception ex)
         {

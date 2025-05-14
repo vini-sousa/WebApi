@@ -1,6 +1,6 @@
-namespace Midgar.Domain
+namespace Midgar.Application.DTOs
 {
-    public class Lote
+    public class LoteDTO
     {
         public int Id { get; set; }
 
@@ -8,14 +8,14 @@ namespace Midgar.Domain
 
         public decimal Price { get; set; }
 
-        public DateTime? InitialDate { get; set; }
+        public string InitialDate { get; set; }
 
-        public DateTime? FinalDate { get; set; }
+        public string FinalDate { get; set; }
 
         public int Quantity { get; set; }
 
         public int EventId { get; set; }
 
-        public Event Event { get; set; }
+        public EventDTO Event { get; set; }
     }
 }
